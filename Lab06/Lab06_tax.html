@@ -1,0 +1,170 @@
+<style>
+    .form {
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        /* border: solid 2px; */
+    }
+
+    .container-sm {
+        max-width: 400px;
+    }
+
+    input,
+    select {
+        margin-top: 5px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .modal-body {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    #source {
+        font-size: 13px;
+    }
+
+    :not(pre)>code[class*=language-],
+    pre[class*=language-] {
+        background-color: #ffff;
+    }
+
+
+
+    .table-hover tr:hover td {
+        background-color: #00ff6a48 !important;
+        font-weight: bold;
+    }
+</style>
+
+
+
+<div class="container-fluid pt-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 justify-content-center mt-0">
+        <h2 class="fw-bold text-center mt-3 mb-0">คำนวณภาษี Function</h2>
+        <div class="col-12 col-lg-5 d-flex justify-content-center mt-0">
+            <div class="d-flex justify-content-center align-items-center input-group">
+                <form class="form" action="?p=Lab06_cal_tax" method="post">
+                    <label class="pt-2" for="emp_id">รหัสพนักงาน</label>
+                    <input type="number" class="form-control" name="emp_id" placeholder="กรุณากรอกรหัสพนักงาน">
+                    <label class="pt-2" for="emp_name">ชื่อพนักงาน</label>
+                    <input type="text" class="form-control" name="emp_name" value="Mr.Chayakorn Phukhiao"
+                        placeholder="กรุณากรอกชื่อพนักงาน">
+                    <label class="pt-2" for="net_ic">รายได้สุทธิ</label>
+                    <input type="number" class="form-control" name="net_ic" placeholder="กรุณากรอกรายได้สุทธิ" required>
+                    <div class="button d-flex">
+                        <button type="button" class="col-5 btn btn-outline-danger" data-bs-toggle="modal"
+                            data-bs-target="#cal1">code</button>
+                        <button type="submit" name="cal" class="col-6 btn btn-success">คำนวณ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-lg-5 d-flex justify-content-center border-2 border-dark border-end mt-3">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th class="col">เงินได้สุทธิ (บาท)</th>
+                        <th class="col">อัตราภาษี</th>
+                        <th class="col">ขั้นภาษี</th>
+                        <th class="col">สะสมสูงสุด</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>1 - 150,000</td>
+                        <td>ได้รับยกเว้น</td>
+                        <td> 0</td>
+                        <td> 0</td>
+                    </tr>
+                    <tr>
+                        <td>150,001 - 300,000</td>
+                        <td>5%</td>
+                        <td>7,500</td>
+                        <td>7,500</td>
+                    </tr>
+                    <tr>
+                        <td>300,001 - 500,000</td>
+                        <td>10%</td>
+                        <td>20,000</td>
+                        <td>27,500</td>
+                    </tr>
+                    <tr>
+                        <td>500,001 - 750,000</td>
+                        <td>15%</td>
+                        <td>37,500</td>
+                        <td>65,000</td>
+                    </tr>
+                    <tr>
+                        <td>750,001 - 1,000,000</td>
+                        <td>20%</td>
+                        <td>50,000</td>
+                        <td>115,000</td>
+                    </tr>
+                    <tr>
+                        <td>1,000,001 - 2,000,000</td>
+                        <td>25%</td>
+                        <td>250,000</td>
+                        <td>365,000</td>
+                    </tr>
+                    <tr>
+                        <td>2,000,001 - 5,000,000</td>
+                        <td>30%</td>
+                        <td>900,000</td>
+                        <td>1,265,000</td>
+                    </tr>
+                    <tr>
+                        <td>5,000,001 บาทขึ้นไป</td>
+                        <td>35%</td>
+                        <td>ไม่จำกัด</td>
+                        <td>ไม่จำกัด</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--Modal source code-->
+<div class="modal fade" id="cal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle"> Source Code</h5>
+            </div>
+            <div class="modal-body">
+                <pre id="source">
+                            <code id="code-block" class="language-html ">
+
+                            </code>
+                        </pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

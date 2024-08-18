@@ -1,0 +1,315 @@
+<style>
+    .container-sm {
+        max-width: 600px;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .form-container {
+        display: none;
+    }
+
+    .form-container.active {
+        display: block;
+    }
+
+    .modal-body {
+        max-height: 350px;
+        overflow-y: auto;
+    }
+
+    #source {
+        font-size: 13px;
+    }
+
+    :not(pre)>code[class*=language-],
+    pre[class*=language-] {
+        background-color: #ffff;
+    }
+</style>
+<div class="container-fluid py-5">
+    <div class="container-sm card rounded-3 ">
+        <div class="btn-group py-3 d-flex" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-outline-secondary"
+                onclick="showForm('form1', this)">คำนวณแบบทั่วไป</button>
+            <button type="button" class="btn btn-outline-secondary"
+                onclick="showForm('form2', this)">คำนวณแบบฟังก์ชัน</button>
+            <button type="button" class="btn btn-outline-secondary" onclick="showForm('form3', this)">
+                คำนวณแบบ OOP</button>
+        </div>
+        <div class="main mt-1">
+            <div class="buttons">
+                <!--Form 1-->
+                <div class="form-container active" id="form1">
+                    <h4 class="text-center fw-bold text-muted">การเขียนแบบทั่วไป (Procedural Programming)</h4>
+                    <div style="min-height: 130px;">
+                        <div class="collapse show pt-2" id="dis-form1">
+                            <div class="card card-body text-muted">
+                                เป็นวิธีการเขียนโปรแกรมที่เน้นการทำงานเป็นลำดับขั้นตอนโดยใช้ฟังก์ชันย่อยๆ
+                                ในการจัดการงานซึ่งแต่ละฟังก์ชันจะทำงานตามลำดับที่กำหนดไว้
+                            </div>
+                        </div>
+                    </div>
+                    <form action="?p=Lab01_post1" method="post">
+                        <div class=" input-group mb-3">
+                            <span class="input-group-text fw-bold" id="basic-addon1">Number A</span>
+                            <input type="number" name="num_a" class="form-control" placeholder="กรุณากรอก Number A"
+                                required>
+                        </div>
+                        <div class=" input-group mb-3">
+                            <span class="input-group-text fw-bold" id="basic-addon1">Number B</span>
+                            <input type="number" name="num_b" class="form-control" placeholder="กรุณากรอก Number B"
+                                required>
+                        </div>
+                        <div class="row py-3">
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                    data-bs-target="#cal1">code</button>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-success w-100" name="cal1">คำนวณ</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!--Form 2-->
+                <div class="form-container" id="form2">
+                    <h4 class="text-center fw-bold text-muted">การเขียนแบบฟังก์ชัน (Functional Programming)</h4>
+                    <div style="min-height: 130px;">
+                        <div class="collapse show  pt-2" id="dis-form2">
+                            <div class="card card-body text-muted">
+                                เป็นแนวทางการเขียนโปรแกรมที่เน้นการใช้ฟังก์ชันบริสุทธิ์ (pure functions)
+                                และการหลีกเลี่ยงการเปลี่ยนแปลงสถานะ (state mutation) หรือผลกระทบข้างเคียง (side
+                                effects)
+                            </div>
+                        </div>
+                    </div>
+                    <form action="?p=Lab01_post2" method="post">
+                        <div class=" input-group mb-3">
+                            <span class="input-group-text fw-bold" id="basic-addon1">Number A</span>
+                            <input type="number" name="num_a" class="form-control" placeholder="กรุณากรอก Number A"
+                                required>
+                        </div>
+                        <div class=" input-group mb-3">
+                            <span class="input-group-text fw-bold" id="basic-addon1">Number B</span>
+                            <input type="number" name="num_b" class="form-control" placeholder="กรุณากรอก Number B"
+                                required>
+                        </div>
+                        <div class="row py-3">
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                    data-bs-target="#cal2">code</button>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-success w-100" name="cal2">คำนวณ</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!--Form 3-->
+                <div class="form-container" id="form3">
+                    <h4 class="text-center fw-bold text-muted">การเขียนแบบเชิงวัตถุ (Object-Oriented Programming)</h4>
+                    <div style="min-height: 130px;">
+                        <div class="collapse show  pt-2" id="dis-form3">
+                            <div class="card card-body text-muted">
+                                เป็นแนวทางการเขียนโปรแกรมที่ใช้ "วัตถุ" (objects) ซึ่งเป็นหน่วยหลักของโปรแกรม
+                                โดยแต่ละวัตถุจะประกอบด้วยข้อมูล (attributes) และการกระทำ (methods)
+                                ที่เกี่ยวข้องกับข้อมูลนั้นๆ
+                            </div>
+                        </div>
+                    </div>
+                    <form action="?p=Lab01_post3" method="post">
+                        <div class=" input-group mb-3">
+                            <span class="input-group-text fw-bold" id="basic-addon1">Number A</span>
+                            <input type="number" name="num_a" class="form-control" placeholder="กรุณากรอก Number A"
+                                required>
+                        </div>
+                        <div class=" input-group mb-3">
+                            <span class="input-group-text fw-bold" id="basic-addon1">Number B</span>
+                            <input type="number" name="num_b" class="form-control" placeholder="กรุณากรอก Number B"
+                                required>
+                        </div>
+                        <div class="row py-3">
+                            <div class="col-auto">
+                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal"
+                                    data-bs-target="#cal3">code</button>
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-success w-100" name="cal3">คำนวณ</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal form1-->
+<div class="modal fade" id="cal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Procedural Source Code</h5>
+            </div>
+            <div class="modal-body">
+                <pre id="source"><code id="code-block" class="language-html">
+&lt;h1&gt;คำนวณแบบทั่วไป&lt;/h1&gt;
+&lt;?php
+if (isset($_POST['cal1'])) {
+    $a = $_POST['num_a'];
+    $b = $_POST['num_b'];
+    $c = $a + $b;
+    echo "&lt;p&gt;$a + $b = $c&lt;/p&gt;";
+}
+?&gt;
+
+&lt;form action="" method="post"&gt;
+    &lt;div class=" input-group mb-3"&gt;
+        &lt;span class="input-group-text fw-bold" id="basic-addon1"&gt;Number A&lt;/span&gt;
+        &lt;input type="number" name="num_a" class="form-control" placeholder="กรุณากรอก Number A" required&gt;
+    &lt;/div&gt;
+    &lt;div class=" input-group mb-3"&gt;
+        &lt;span class="input-group-text fw-bold" id="basic-addon1"&gt;Number B&lt;/span&gt;
+        &lt;input type="number" name="num_b" class="form-control" placeholder="กรุณากรอก Number B" required&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" class="btn btn-success w-100" name="cal1"&gt;คำนวณ&lt;/button&gt;
+&lt;/form&gt;
+                </code></pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class=" btn btn-danger" data-bs-dismiss="modal">ปิด</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--modal form2-->
+<div class="modal fade" id="cal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">function Source Code</h5>
+            </div>
+            <div class="modal-body">
+                <pre id="source">
+                    <code id="code-block" class="language-html ">
+&lt;h1&gt;คำนวณแบบฟังก์ชัน&lt;/h1&gt;
+&lt;?php
+function calnumber($numA, $numB)
+{
+    $numC = $numA + $numB;
+    return $numC;
+}
+
+if (isset($_POST['cal2'])) {
+    $numA = $_POST['num_a'];
+    $numB = $_POST['num_b'];
+    echo $numA . " + " . $numB . " = " . calnumber($numA, $numB);
+}
+?&gt;
+&lt;form action="" method="post"&gt;
+    &lt;div class=" input-group mb-3"&gt;
+        &lt;span class="input-group-text fw-bold" id="basic-addon1"&gt;Number A&lt;/span&gt;
+        &lt;input type="number" name="num_a" class="form-control" placeholder="กรุณากรอก Number A" required&gt;
+    &lt;/div&gt;
+    &lt;div class=" input-group mb-3"&gt;
+        &lt;span class="input-group-text fw-bold" id="basic-addon1"&gt;Number B&lt;/span&gt;
+        &lt;input type="number" name="num_b" class="form-control" placeholder="กรุณากรอก Number B" required&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;button type="submit" class="btn btn-success w-100" name="cal2"&gt;คำนวณ&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+                    </code>
+                </pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class=" btn btn-danger" data-bs-dismiss="modal">ปิด</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal form3-->
+<div class="modal fade" id="cal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">function Source Code</h5>
+            </div>
+            <div class="modal-body">
+                <pre id="source">
+                    <code id="code-block" class="language-html ">
+&lt;h1&gt;คำนวณแบบ OOP&lt;/h1&gt;
+&lt;?php
+class Classnum
+{
+    private $numA;
+    private $numB;
+
+    public function __construct($pmA, $pmB)
+    {
+        $this-&gt;numA = $pmA;
+        $this-&gt;numB = $pmB;
+    }
+
+    public function add()
+    {
+        return $this-&gt;numA + $this-&gt;numB;
+    }
+}
+
+if (isset($_POST['num_a']) && isset($_POST['num_b'])) {
+
+    $numA = $_POST['num_a'];
+    $numB = $_POST['num_b'];
+
+    $Ob_c = new Classnum($numA, $numB);
+    $c = $Ob_c-&gt;add();
+    echo "$numA + $numB = $c";
+}
+?&gt;
+&lt;form action="" method="post"&gt;
+    &lt;div class=" input-group mb-3"&gt;
+        &lt;span class="input-group-text fw-bold" id="basic-addon1"&gt;Number A&lt;/span&gt;
+        &lt;input type="number" name="num_a" class="form-control" placeholder="กรุณากรอก Number A" required&gt;
+    &lt;/div&gt;
+    &lt;div class=" input-group mb-3"&gt;
+        &lt;span class="input-group-text fw-bold" id="basic-addon1"&gt;Number B&lt;/span&gt;
+        &lt;input type="number" name="num_b" class="form-control" placeholder="กรุณากรอก Number B" required&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" class="btn btn-success w-100" name="cal3"&gt;คำนวณ&lt;/button&gt;
+&lt;/form&gt;
+                    </code>
+                </pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class=" btn btn-danger" data-bs-dismiss="modal">ปิด</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function showForm(formId, button) {
+        document.querySelectorAll('.form-container').forEach((form) => {
+            form.classList.remove('active');
+        });
+        document.getElementById(formId).classList.add('active');
+
+        document.querySelectorAll('.btn-group button').forEach((btn) => {
+            btn.classList.remove('active');
+        });
+        button.classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('.form-container').classList.add('active');
+        document.querySelector('.btn-group button').classList.add('active');
+    });
+
+</script>

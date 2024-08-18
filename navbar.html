@@ -1,0 +1,300 @@
+<style>
+    /* .offcanvas{
+        width: 600px !important;
+    } */
+    .offcanvas-title-container {
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .offcanvas-title {
+        margin: 0;
+    }
+
+    li a,
+    div a {
+        font-size: 1rem;
+    }
+
+    .offcanvas.show:not(.hiding),
+    .offcanvas.showing {
+        height: 100%;
+    }
+</style>
+
+<nav class="navbar sticky-top bg-white top-0 py-3 shadow-sm" id="navbar">
+    <div class="container d-flex flex-wrap justify-content-between">
+        <a href="?p=home" class="d-flex align-items-center mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+            <img src="./images/Clogo.png" class="bi me-2" width="40" height="40" />
+            <span class="fs-3 fw-bold text-muted">HAYAKORN</span>
+        </a>
+        <ul class="nav">
+            <!-- Menu sidebar-->
+            <li class="nav-item">
+                <a class="navbar-toggler border-0 py-0 shadow-none d-flex justify-content-center align-items-center text-decoration-none"
+                    type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+                    aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                    <span
+                        class="material-symbols-outlined text-muted nav-link px-0 d-flex justify-content-center align-items-center">
+                        menu
+                    </span>
+                </a>
+            </li>
+            <!-- Contact -->
+            <li class="nav-item">
+                <a href="?p=contact" class="fw-bold btn btn-outline-secondary border-2">ติดต่อ</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- sidebar menu-->
+    <div class="offcanvas offcanvas-start border-0" tabindex="-1" id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header d-flex justify-content-between align-items-center border-3">
+            <div class="offcanvas-title-container">
+                <h1 class="offcanvas-title text-muted fw-bold" id="offcanvasDarkNavbarLabel">Menu</h1>
+            </div>
+            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <!-- Menu -->
+        <div class="sidebar offcanvas-body d-flex flex-column py-4">
+            <ul class="navbar-nav flex-grow-1 mb-5">
+                <li>
+                    <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 text-bg-secondary badge">ทั่วไป</h5>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link fs-5 mx-3" aria-current="page" href="?p=home">หน้าหลัก</a>
+                </li>
+                <!-- Lab01 -->
+                <li>
+                    <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 text-bg-secondary badge">วันที่ 5 กรกฏาคม 2567</h5>
+                </li>
+                <li class="nav-item dropdown py-1">
+                    <a type="button" class="nav-link dropdown-toggle fs-5 mx-3" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        งาน Lab01 CalNum<span
+                            class="nav-item mx-1 my-1 badge completed fst-italic fw-medium">เสร็จสิ้น</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-start mx-3">
+                        <li>
+                            <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 bg-success badge mx-2">ชิ้นงาน</h5>
+                        </li>
+                        <li><a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab01">Form Lab01</a></li>
+                        <li><a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab01_calnum">Lab01_CalNum</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 text-bg-secondary badge mx-2">Source Code
+                            </h5>
+                        </li>
+                        <li><a class="dropdown-item" href="?p=source_Lab01_index">Index</a></li>
+                        <li><a class="dropdown-item" href="?p=source_Lab01_post01">Lab01_normal</a></li>
+                        <li><a class="dropdown-item" href="?p=source_Lab01_post02">Lab01_function</a></li>
+                        <li><a class="dropdown-item" href="?p=source_Lab01_post03">Lab01_OOP</a></li>
+                    </ul>
+                </li>
+                <!-- Lab02 -->
+                <li>
+                    <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 text-bg-secondary badge">วันที่ 12 กรกฏาคม 2567</h5>
+                </li>
+                <li class="nav-item dropdown py-1">
+                    <a type="button" class="nav-link dropdown-toggle fs-5 mx-3" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        งาน Lab02 Operator<span
+                            class="nav-item mx-1 my-1 badge completed fst-italic fw-medium">เสร็จสิ้น</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-start mx-3">
+                        <li>
+                            <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 bg-success badge mx-2">ชิ้นงาน</h5>
+                        </li>
+                        <li><a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab02">Form
+                                Lab02</a></li>
+                        <li><a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab02_1function">Lab02_function</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 text-bg-secondary badge mx-2">Source Code
+                            </h5>
+                        </li>
+                        <li><a class="dropdown-item" href="?p=source_Lab02_index">Index</a></li>
+                        <li><a class="dropdown-item" href="?p=source_Lab02_post">Lab02_post</a></li>
+                    </ul>
+                </li>
+                <!-- Lab03  -->
+                <li>
+                    <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 text-bg-secondary badge">วันที่ 19 กรกฏาคม 2567</h5>
+                </li>
+                <li class="nav-item dropdown py-1">
+                    <a type="button" class="nav-link dropdown-toggle fs-5 mx-3" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        งาน Lab03 พื้นที่สี่เหลี่ยม<span
+                            class="nav-item mx-1 my-1 badge bg-danger fst-italic fw-medium">ยังไม่เสร็จ</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-start mx-3">
+                        <li>
+                            <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 bg-success badge mx-2">ชิ้นงาน</h5>
+                        </li>
+                        <li>
+                            <a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab03">Form
+                                Lab03
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Lab04  -->
+                <li>
+                    <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 text-bg-secondary badge">วันที่ 19 กรกฏาคม 2567</h5>
+                </li>
+                <li class="nav-item dropdown py-1">
+                    <a type="button" class="nav-link dropdown-toggle fs-5 mx-3" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        งาน Lab04 พื้นที่วงกลม<span
+                            class="nav-item mx-1 my-1 badge completed fst-italic fw-medium">เสร็จสิ้น</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-start mx-3">
+                        <li>
+                            <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 bg-success badge mx-2">ชิ้นงาน</h5>
+                        </li>
+                        <li><a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab04">Form
+                                Lab04</a></li>
+                        <li>
+                            <a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab04_circle">Lab04_Circle
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Lab05  -->
+                <li>
+                    <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 text-bg-secondary badge">วันที่ 26 กรกฏาคม 2567</h5>
+                </li>
+                <li class="nav-item dropdown py-1">
+                    <a type="button" class="nav-link dropdown-toggle fs-5 mx-3" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        งาน Lab05 คำนวณสินค้า<span
+                            class="nav-item mx-1 my-1 badge completed fst-italic fw-medium">เสร็จสิ้น</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-start mx-3">
+                        <li>
+                            <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 bg-success badge mx-2">ชิ้นงาน</h5>
+                        </li>
+                        <li><a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab05">Form
+                                คำนวณสินค้า</a></li>
+                        <li><a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab05_home_work">Form Function</a></li>
+                    </ul>
+                </li>
+                <!-- Lab06  -->
+                <li>
+                    <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 text-bg-secondary badge">วันที่ 9 สิงหาคม 2567</h5>
+                </li>
+                <li class="nav-item dropdown py-1">
+                    <a type="button" class="nav-link dropdown-toggle fs-5 mx-3" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        งาน Lab06 ภาษี<span
+                            class="nav-item mx-1 my-1 badge completed fst-italic fw-medium">เสร็จสิ้น</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-start mx-3">
+                        <li>
+                            <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 bg-success badge mx-2">ชิ้นงาน</h5>
+                        </li>
+                        <li>
+                            <a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab06">
+                                คำนวณภาษี 
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab06_tax_oop">
+                                คำนวณภาษี OOP
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- Lab07  -->
+                <li>
+                    <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 text-bg-secondary badge">วันที่ 16 สิงหาคม 2567</h5>
+                </li>
+                <li class="nav-item dropdown py-1">
+                    <a type="button" class="nav-link dropdown-toggle fs-5 mx-3" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        งาน Lab07 ยอดการสั่งซื้อ<span
+                            class="nav-item mx-1 my-1 badge completed fst-italic fw-medium">เสร็จสิ้น</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-start mx-3">
+                        <li>
+                            <h5 class="fs-6 lh-0 fst-italic fw-medium my-0 bg-success badge mx-2">ชิ้นงาน</h5>
+                        </li>
+                        <li>
+                            <a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab07_normal">
+                                ยอดการสั่งซื้อ
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab07_func">
+                                ยอดการสั่งซื้อ function
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link-success link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover mx-3"
+                                href="?p=Lab07_oop">
+                                ยอดการสั่งซื้อ OOP
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="d-flex flex-column justify-content-center align-items-center px-3 gap-3"
+                style="margin-bottom: 0px;">
+                <a class="text-decoration-none py-1 btn btn-secondary rounded-5 px-4 py-2" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Login</a>
+                <a href="signup" class="text-decoration-none py-1 text-muted ">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+        <div class="offcanvas-header" style="flex-direction: column-reverse">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" style="width: auto;">
+            <h1 class="text-center mt-5 fw-bold text-muted" id="offcanvasTopLabel">Login</h1>
+            <div class="container d-flex justify-content-center align-items-center">
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">UserName</label>
+                        <input type="text" class="form-control">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">PassWord</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <div class="d-flex flex-column gap-3">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type="submit" class="btn btn-warning text-white">Regis</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>

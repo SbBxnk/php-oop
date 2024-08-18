@@ -1,0 +1,162 @@
+<style>
+    .container-sm {
+        width: 100%;
+        max-width: 1000px;
+    }
+
+    .code-container {
+        position: relative;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+        overflow: hidden;
+        padding: 10px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .code-container pre {
+        margin: 0;
+        overflow: auto;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        z-index: 1;
+        transition: background-color 0.3s;
+    }
+
+    #source {
+        font-size: 13px;
+    }
+
+    :not(pre)>code[class*=language-],
+    pre[class*=language-] {
+        background-color: #ffffff;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container-sm py-5">
+        <h1 class="text-muted">การเขียนแบบเชิงวัตถุ (Object-Oriented Programming)</h1>
+        <div class="code-container">
+            <div class="d-flex justify-content-between border-bottom border-2 px-2 py-1">
+                <h4 class="text-muted">Lab01_post03.php</h4>
+                <button id="copy-button" class="copy-btn border-0 bg-transparent text-body-tertiary"
+                    style="transition: transform 0.2s; --bs-icon-link-transform: translate3d(0, 0, 0);"
+                    onmouseover="this.style.transform='translate3d(0, -0.125rem, 0)'"
+                    onmouseout="this.style.transform='translate3d(0, 0, 0)'" onclick="copyCode()"
+                    data-bs-placement="top" data-bs-toggle="popover" data-bs-content="คัดลอกแล้ว">
+                    <span class="material-symbols-outlined">content_copy</span>
+                </button>            </div>
+            <pre id="source">
+                <code id="code-block" class="language-html ">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="th"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;คำนวณแบบ OOP&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;คำนวณแบบ OOP&lt;/h1&gt;
+        &lt;?php
+        class Classnum
+        {
+            private $numA;
+            private $numB;
+
+            public function __construct($pmA, $pmB)
+            {
+                $this-&gt;numA = $pmA;
+                $this-&gt;numB = $pmB;
+            }
+
+            public function add()
+            {
+                return $this-&gt;numA + $this-&gt;numB;
+            }
+        }
+
+        if (isset($_POST['num_a']) && isset($_POST['num_b'])) {
+
+            $numA = $_POST['num_a'];
+            $numB = $_POST['num_b'];
+
+            $Ob_c = new Classnum($numA, $numB);
+            $c = $Ob_c-&gt;add();
+            echo "$numA + $numB = $c";
+        }
+        ?&gt;
+        &lt;br&gt;
+        &lt;a href="../index.php?p=Lab01"&gt;กลับ&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;            
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- เพิ่ม Prism.js JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var copyButton = document.getElementById('copy-button');
+            var popover = new bootstrap.Popover(copyButton);
+
+            copyButton.addEventListener('shown.bs.popover', function () {
+                setTimeout(function () {
+                    popover.hide();
+                }, 1000);
+            });
+        });
+
+        function copyCode() {
+            const codeElement = document.getElementById('code-block');
+            const textArea = document.createElement('textarea');
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            // แสดง popover
+            var copyButton = document.getElementById('copy-button');
+            var popover = bootstrap.Popover.getInstance(copyButton);
+            popover.show();
+        }
+    </script>

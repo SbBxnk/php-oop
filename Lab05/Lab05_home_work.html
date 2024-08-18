@@ -1,0 +1,111 @@
+<style>
+    .form {
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        /* border: solid 2px; */
+    }
+
+    .container-sm {
+        max-width: 500px;
+    }
+
+    input,
+    select {
+        margin-top: 5px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .modal-body {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    #source {
+        font-size: 13px;
+    }
+
+    :not(pre)>code[class*=language-],
+    pre[class*=language-] {
+        background-color: #ffff;
+    }
+</style>
+
+
+
+<div class="container-fluid py-5">
+    <div class="container-sm card rounded-3 shadow-sm">
+        <h2 class="fw-bold text-center mt-3">คำนวณ โออิชิ 3 ฟรี 1 Function</h2>
+        <div class="d-flex justify-content-center align-items-center input-group">
+            <form class="form" action="?p=Lab05_fucntion" method="post">
+                <label class="pt-2" for="product_id">รหัสสินค้า</label>
+                <input type="number" class="form-control" name="product_id" placeholder="กรุณากรอกรหัสสินค้า">
+                <label class="pt-2" for="product_name">ชื่อสินค้า</label>
+                <input type="text" class="form-control" name="product_name" value="อิชิตัน" placeholder="กรุณากรอกชื่อสินค้า">
+
+                <div class="row">
+                    <div class="col-6">
+                        <label class="pt-2" for="product_qty">จำนวน</label>
+                        <input type="number" class="form-control" name="product_qty" 
+                            placeholder="กรุณากรอกจำนวน" required>
+                    </div>
+                    <div class="col-6">
+                        <label class="pt-2" for="price">ราคาสินค้า</label>
+                        <input type="number" class="form-control " name="price" 
+                            placeholder="กรุณากรอกราคา" required>
+                    </div>
+                </div>
+
+                <div class="button d-flex">
+                    <button type="button" class="col-5 btn btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#cal1">code</button>
+                    <button type="submit" name="cal" class="col-6 btn btn-success">คำนวณ</button>
+                </div>
+            </form>
+        </div>
+
+        <!--Modal source code-->
+        <div class="modal fade" id="cal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle"> Source Code</h5>
+                    </div>
+                    <div class="modal-body">
+                        <pre id="source">
+                            <code id="code-block" class="language-html ">
+
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

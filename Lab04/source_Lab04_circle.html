@@ -1,0 +1,129 @@
+<style>
+    .container-sm {
+        width: 100%;
+        max-width: 1000px;
+    }
+
+    .code-container {
+        position: relative;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+        overflow: hidden;
+        padding: 10px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .code-container pre {
+        margin: 0;
+        overflow: auto;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        z-index: 1;
+        transition: background-color 0.3s;
+    }
+
+    #source {
+        font-size: 13px;
+    }
+
+    :not(pre)>code[class*=language-],
+    pre[class*=language-] {
+        background-color: #ffffff;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container-sm py-5">
+        <h1 class="text-muted">Source Code Circle Area</h1>
+        <div class="code-container">
+            <div class="d-flex justify-content-between border-bottom border-2 px-2 py-1">
+                <h4 class="text-muted">Lab03_circle.php</h4>
+                <button id="copy-button" class="copy-btn btn btn-outline-secondary" onclick="copyCode()">คัดลอก</button>
+            </div>
+            <pre id="source">
+                <code id="code-block" class="language-html ">
+&lt;?php 
+class Circle {
+    private $radius;
+    // วงกลม
+    public function CArea() {
+        return pi() * pow($this-&gt;radius, 2);
+    }
+    public function CLenght() {
+        return 2 * pi() * $this-&gt;radius;
+    }
+    
+    public function setRadius($Circleradius) {
+        $this-&gt;radius = $Circleradius;
+    }
+}
+
+$circle = new Circle();
+
+?&gt;
+
+&lt;div class="container py-5 text-center"&gt;
+    
+&lt;?php
+    $circle-&gt;setRadius(5);
+?&gt;
+&lt;h3&gt; style="color:Tomato;" &gt;วงกลมที่ 1&lt;/h3&gt;
+&lt;p&gt;รัศมีวงกลม = 5&lt;/p&gt;
+&lt;span&gt;พื้นที่รอบวง = &lt;?php echo number_format($circle-&gt;CArea(),2); ?&gt; ตารางเซนติเมตร&lt;/span&gt; &lt;br&gt;
+&lt;span&gt;เส้นรอบวง = &lt;?php echo number_format($circle-&gt;CLenght(),2); ?&gt; ตารางเซนติเมตร&lt;/span&gt;
+&lt;hr&gt;
+
+&lt;?php
+    $circle-&gt;setRadius(10);
+?&gt;
+&lt;h3&gt; style="color:Tomato;" &gt;วงกลมที่ 2&lt;/h3&gt;
+&lt;p&gt;รัศมีวงกลม = 10&lt;/p&gt;
+&lt;span&gt;พื้นที่รอบวง = &lt;?php echo number_format($circle-&gt;CArea(),2); ?&gt; ตารางเซนติเมตร&lt;/span&gt; &lt;br&gt;
+&lt;span&gt;เส้นรอบวง = &lt;?php echo number_format($circle-&gt;CLenght(),2); ?&gt; ตารางเซนติเมตร&lt;/span&gt;
+&lt;hr&gt;
+
+&lt;?php
+    $circle-&gt;setRadius(26);
+?&gt;
+&lt;h3&gt; style="color:Tomato;" &gt;วงกลมที่ 3&lt;/h3&gt;
+&lt;p&gt;รัศมีวงกลม = 26&lt;/p&gt;
+&lt;span&gt;พื้นที่รอบวง = &lt;?php echo number_format($circle-&gt;CArea(),2); ?&gt; ตารางเซนติเมตร&lt;/span&gt; &lt;br&gt;
+&lt;span&gt;เส้นรอบวง = &lt;?php echo number_format($circle-&gt;CLenght(),2); ?&gt; ตารางเซนติเมตร&lt;/span&gt;
+&lt;/div&gt;                                     
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- เพิ่ม Prism.js JavaScript -->
+    <script>
+        function copyCode() {
+            // เข้าถึง element ของโค้ด
+            const codeElement = document.getElementById('code-block');
+            // สร้าง TextArea ชั่วคราว
+            const textArea = document.createElement('textarea');
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            // เปลี่ยนข้อความของปุ่มเป็น "คัดลอกแล้ว"
+            const button = document.getElementById('copy-button');
+            button.textContent = 'คัดลอกแล้ว';
+
+            // เปลี่ยนข้อความกลับเป็น "Copy Code" หลังจาก 3 วินาที
+            setTimeout(() => {
+                button.textContent = 'คัดลอก';
+            }, 3000);
+        }
+    </script>

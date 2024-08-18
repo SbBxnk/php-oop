@@ -1,0 +1,29 @@
+&lt;?php
+function discount($total)
+{
+    $discount = 0;
+    if ($total &gt; 20000) {
+        $discount = $total * 20 / 100;
+    } else if ($total &gt; 15000) {
+        $discount = $total * 15 / 100;
+    } else if ($total &gt; 10000) {
+        $discount = $total * 10 / 100;
+    } else if ($total &gt;= 5000) {
+        $discount = $total * 5 / 100;
+    } else {
+        $discount = 0;
+    }
+    return $discount;
+}
+
+if (isset($_POST["cal"])) {
+    $code = $_POST["code"];
+    $gname = $_POST["gname"];
+    $type = $_POST["type"];
+    $price = $_POST["price"];
+    $unit = $_POST["unit"];
+    $total = $price * $unit;
+    $discount = discount($total);
+    $payment = $total - $discount;
+}
+?&gt;

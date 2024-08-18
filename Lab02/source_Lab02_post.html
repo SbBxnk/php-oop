@@ -1,0 +1,158 @@
+<style>
+    .container-sm {
+        width: 100%;
+        max-width: 1000px;
+    }
+
+    .code-container {
+        position: relative;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+        overflow: hidden;
+        padding: 10px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .code-container pre {
+        margin: 0;
+        overflow: auto;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        z-index: 1;
+        transition: background-color 0.3s;
+    }
+
+    #source {
+        font-size: 13px;
+    }
+
+    :not(pre)>code[class*=language-],
+    pre[class*=language-] {
+        background-color: #ffffff;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container-sm py-5">
+        <h1 class="text-muted">Source Code Calculator action</h1>
+        <div class="code-container">
+            <div class="d-flex justify-content-between border-bottom border-2 px-2 py-1">
+                <h4 class="text-muted">Lab02_post.php</h4>
+                <button id="copy-button" class="copy-btn btn btn-outline-secondary" onclick="copyCode()">คัดลอก</button>
+            </div>
+            <pre id="source">
+                <code id="code-block" class="language-html ">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="th"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;link rel="icon" type="image/png" href="../images/accounting.png" /&gt;
+    &lt;style&gt;&gt;
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;ผลลัพธ์&lt;/h1&gt;
+        &lt;?php
+        function calnum($a, $op, $b)
+        {
+            $c = 0;
+            if ($op == "+")
+                $c = $a + $b;
+            elseif ($op == "-")
+                $c = $a - $b;
+            elseif ($op == "*")
+                $c = $a * $b;
+            elseif ($op == "/")
+                $c = $a / $b;
+            elseif ($op == "%")
+                $c = $a % $b;
+            elseif ($op == "^")
+                $c = pow($a, $b);
+            elseif ($op = "\\")
+                $c = intdiv($a, $b);
+            return $c;
+        }
+
+        //การทำงาน
+        if (isset($_POST['cal'])) {
+            $a = $_POST['a'];
+            $op = $_POST['op']; 
+            $b = $_POST['b'];
+
+
+            echo "$a $op $b = ". calnum($a,$op,$b);
+        }
+        ?&gt;
+        &lt;br&gt;
+        
+        &lt;a&gt; href="../index.php?p=Lab02"&gt;กลับ&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;                    
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- เพิ่ม Prism.js JavaScript -->
+    <script>
+        function copyCode() {
+            // เข้าถึง element ของโค้ด
+            const codeElement = document.getElementById('code-block');
+            // สร้าง TextArea ชั่วคราว
+            const textArea = document.createElement('textarea');
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            // เปลี่ยนข้อความของปุ่มเป็น "คัดลอกแล้ว"
+            const button = document.getElementById('copy-button');
+            button.textContent = 'คัดลอกแล้ว';
+
+            // เปลี่ยนข้อความกลับเป็น "Copy Code" หลังจาก 3 วินาที
+            setTimeout(() => {
+                button.textContent = 'คัดลอก';
+            }, 3000);
+        }
+    </script>

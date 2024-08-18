@@ -1,0 +1,156 @@
+<style>
+    .form {
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        /* border: solid 2px; */
+    }
+
+    .container-sm {
+        max-width: 400px;
+    }
+
+    input,
+    select {
+        margin-top: 5px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .modal-body {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    #source {
+        font-size: 13px;
+    }
+
+    :not(pre)>code[class*=language-],
+    pre[class*=language-] {
+        background-color: #ffff;
+    }
+</style>
+<div class="container-fluid py-5">
+    <div class="container-sm card rounded-3 shadow-sm">
+        <h2 class="fw-bold text-center mt-3">เครื่องคิดเลข</h2>
+        <div class="d-flex justify-content-center align-items-center input-group">
+            <form class="form" action="?p=Lab02_post" method="post">
+                <label class="pt-2" for="a">Number A</label>
+                <input type="number" class="form-control" name="a" placeholder="กรุณากรอก Number A" required>
+                <label class="pt-2" for="op">Operator</label>
+                <select name="op" class="form-select" required>
+                    <option value="+">+&nbsp;&nbsp;&nbsp;(บวก)</option>
+                    <option value="-">-&nbsp;&nbsp;&nbsp;(ลบ)</option>
+                    <option value="*">*&nbsp;&nbsp;&nbsp;(คูณ)</option>
+                    <option value="/">/&nbsp;&nbsp;&nbsp;(หาร)</option>
+                    <option value="%">÷&nbsp;&nbsp;&nbsp;(หารเอาเศษ)</option>
+                    <option value="^">X&sup2;&nbsp;(ยกกำลัง)</option>
+                    <option value="\\">\\&nbsp;&nbsp;(หารเอาจำนวนต็ม)</option>
+                </select>
+
+                <label class="pt-2" for="b">Number B</label>
+                <input type="number" class="form-control" name="b" placeholder="กรุณากรอก Number B" required>
+                <div class="button d-flex">
+                    <button type="button" class="col-5 btn btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#cal1">code</button>
+                    <button type="submit" name="cal" class="col-6 btn btn-success">คำนวณ</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!--Modal source code-->
+        <div class="modal fade" id="cal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle"> Source Code</h5>
+                    </div>
+                    <div class="modal-body">
+                        <pre id="source">
+                            <code id="code-block" class="language-html ">
+&lt;h1&gt;ผลลัพธ์&lt;/h1&gt;
+&lt;?php
+function calnum($a, $op, $b)
+{
+    $c = 0;
+    if ($op == "+")
+        $c = $a + $b;
+    elseif ($op == "-")
+        $c = $a - $b;
+    elseif ($op == "*")
+        $c = $a * $b;
+    elseif ($op == "/")
+        $c = $a / $b;
+    elseif ($op == "%")
+        $c = $a % $b;
+    elseif ($op == "^")
+        $c = pow($a, $b);
+    elseif ($op = "\\")
+        $c = intdiv($a, $b);
+    return $c;
+}
+//การทำงาน
+if (isset($_POST['cal'])) {
+    $a = $_POST['a'];
+    $op = $_POST['op'];
+    $b = $_POST['b'];
+    echo "$a $op $b = " . calnum($a, $op, $b);
+}
+?&gt;
+&lt;form class="form" action="" method="post"&gt;
+    &lt;label class="pt-2" for="a"&gt;Number A&lt;/label&gt;
+    &lt;input type="number" class="form-control" name="a" placeholder="กรุณากรอก Number A" required&gt;
+    &lt;label class="pt-2" for="op"&gt;Operator&lt;/label&gt;
+    &lt;select name="op" class="form-select" required&gt;
+        &lt;option value="+"&gt;+&nbsp;&nbsp;&nbsp;(บวก)&lt;/option&gt;
+        &lt;option value="-"&gt;-&nbsp;&nbsp;&nbsp;(ลบ)&lt;/option&gt;
+        &lt;option value="*"&gt;*&nbsp;&nbsp;&nbsp;(คูณ)&lt;/option&gt;
+        &lt;option value="/"&gt;/&nbsp;&nbsp;&nbsp;(หาร)&lt;/option&gt;
+        &lt;option value="%"&gt;÷&nbsp;&nbsp;&nbsp;(หารเอาเศษ)&lt;/option&gt;
+        &lt;option value="^"&gt;X&sup2;&nbsp;(ยกกำลัง)&lt;/option&gt;
+        &lt;option value="\\"&gt;\\&nbsp;&nbsp;(หารเอาจำนวนต็ม)&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;label class="pt-2" for="b"&gt;Number B&lt;/label&gt;
+    &lt;input type="number" class="form-control" name="b" placeholder="กรุณากรอก Number B" required&gt;
+    &lt;div class="button d-flex"&gt;
+        &lt;button type="button" class="col-5 btn btn-outline-danger" data-bs-toggle="modal"
+            data-bs-target="#cal1"&gt;code&lt;/button&gt;
+        &lt;button type="submit" name="cal" class="col-6 btn btn-success"&gt;คำนวณ&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

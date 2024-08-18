@@ -1,0 +1,136 @@
+<style>
+    .form {
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        /* border: solid 2px; */
+    }
+
+    .container-sm {
+        max-width: 400px;
+    }
+
+    input,
+    select {
+        margin-top: 5px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .modal-body {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+
+    #source {
+        font-size: 13px;
+    }
+
+    :not(pre)>code[class*=language-],
+    pre[class*=language-] {
+        background-color: #ffff;
+    }
+</style>
+
+
+
+<div class="container-fluid py-5">
+    <div class="container-sm card rounded-3 shadow-sm">
+        <h2 class="fw-bold text-center mt-3">หาพื้นที่วงกลม</h2>
+        <div class="d-flex justify-content-center align-items-center input-group">
+            <form class="form" action="?p=Lab04_circle_OOP" method="post">
+                <label class="pt-2" for="radius">Radius</label>
+                <input type="number" class="form-control" name="radius" placeholder="กรุณากรอกเส้นรัศมี" required>
+                <div class="button d-flex">
+                    <button type="button" class="col-5 btn btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#cal1">code</button>
+                    <button type="submit" name="cal" class="col-6 btn btn-success">คำนวณ</button>
+                </div>
+            </form>
+        </div>
+
+        <!--Modal source code-->
+        <div class="modal fade" id="cal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle"> Source Code</h5>
+                    </div>
+                    <div class="modal-body">
+                        <pre id="source">
+                            <code id="code-block" class="language-html ">
+&lt;h1&gt;พื้นที่วงกลม&lt;/h1&gt;
+&lt;?php
+class Circle
+{
+    private $radius;
+
+    public function setRadius($Circleradius)
+    {
+        $this-&gt;radius = $Circleradius;
+    }
+    public function getRadius()
+    { //แสดงเส้นรัศมี
+        return $this-&gt;radius;
+    }
+
+    public function CArea() // หาพื้นที่
+    {
+        return pi() * pow($this-&gt;radius, 2);
+    }
+
+    public function CLenght() // หาเส้นรอบวง
+    {
+        return 2 * pi() * $this-&gt;radius;
+    }
+}
+
+if (isset($_POST['cal'])) {
+    $radius = $_POST['radius'];
+    $circle = new Circle();
+
+
+    $circle-&gt;setRadius($radius);
+    $circleArea = $circle-&gt;CArea();
+    $circLenght = $circle-&gt;CLenght();
+}
+?&gt;
+
+&lt;div&gt;&lt;h3 class="text-danger"&gt;เส้นรัศมี = &lt;?php echo $circle-&gt;getRadius(); ?&gt; &lt;/h3&gt;&lt;/div&gt;
+&lt;div&gt;พื้นที่วงกลม = &lt;?php echo number_format(($circleArea ),2)?&gt; ตร.ม&lt;/div&gt;
+&lt;div&gt;เส้นรอบวง = &lt;?php echo number_format(($circLenght),2) ?&gt; &lt;/div&gt;
+
+&lt;a href="../index.php?p=Lab04"&gt;กลับ&lt;/a&gt;
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

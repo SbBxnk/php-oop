@@ -1,0 +1,204 @@
+<style>
+    .form {
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        /* border: solid 2px; */
+    }
+
+    .container-sm {
+        max-width: 400px;
+    }
+
+    input,
+    select {
+        margin-top: 5px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .modal-body {
+        max-height: 500px;
+        overflow-y: auto;
+    }
+
+    #source {
+        font-size: 13px;
+    }
+
+    :not(pre)>code[class*=language-],
+    pre[class*=language-] {
+        background-color: #ffff;
+    }
+
+    .table-hover tr:hover td {
+        background-color: #00ff6a48 !important;
+        font-weight: bold;
+    }
+
+    td {
+        align-items: center;
+    }
+</style>
+
+
+<div class="container-fluid pt-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 justify-content-center mt-0">
+        <h2 class="fw-bold text-center mt-3 mb-0">คำนวณยอดการสั่งซื้อ Function</h2>
+        <div class="col-12 col-lg-6 d-flex justify-content-center mt-0">
+            <div class="d-flex justify-content-center align-items-center input-group">
+                <form action="?p=sales_func" method="POST">
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="name" class="form-label fw-bold">รหัสสินค้า</label>
+                            <input type="text" class="form-control" id="code" name="code" placeholder="กรุณาป้อนรหัสสินค้า" 
+                                value="8851234245" required>
+                        </div>
+                        <div class="col-md-5">
+                            <label for="name" class="form-label fw-bold">ชื่อสินค้า</label>
+                            <input type="text" class="form-control" id="gname" name="gname" placeholder="กรุณาป้อนชื่อสินค้า"
+                                value="มาม่า" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="gender" class="form-label fw-bold">ประเภทสินค้า</label>
+                            <select class="form-select" id="type" name="type" required>
+                                <option value="" disabled selected>กรุณาเลือกประเภทสินค้า</option>
+                                <option value="อาหารแห้ง" selected>อาหารแห้ง</option>
+                                <option value="อาหารสด">อาหารสด</option>
+                                <option value="อื่นๆ">อื่น</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="price" class="form-label fw-bold">ราคาต่อหน่วย</label>
+                            <input type="number" class="form-control" id="price" name="price" placeholder="กรุณาป้อนราคา" 
+                                value="150" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="unit" class="form-label fw-bold">จำนวนซื้อ</label>
+                            <input type="number" class="form-control" id="unit" name="unit" placeholder="กรุณาป้อนจำนวน" 
+                                value="50" required>
+                        </div>
+                    </div>
+                    <div class="button d-flex">
+                        <button type="button" class="col-5 btn btn-outline-danger" data-bs-toggle="modal"
+                            data-bs-target="#cal1">code</button>
+                        <button type="submit" name="cal" class="col-6 btn btn-success">คำนวณ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4 d-flex justify-content-center border-2 border-dark border-end mt-3">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th class="col">ยอดซื้อ</th>
+                        <th class="col">ส่วนลด</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    <tr>
+                        <td>มากกว่า 20,000 บาท</td>
+                        <td class="text-center">20%</td>
+                    </tr>
+                    <tr>
+                        <td>มากกว่า 15,000 บาท</td>
+                        <td class="text-center">15%</td>
+                    </tr>
+                    <tr>
+                        <td>มากกว่า 10,000 บาท</td>
+                        <td class="text-center">10%</td>
+                    </tr>
+                    <tr>
+                        <td>5,000 บาท เป็นต้นไป</td>
+                        <td class="text-center">5%</td>
+                    </tr>
+                    <tr>
+                        <td>น้อยกว่า 5,000 บาท</td>
+                        <td class="text-center">ไม่มีส่วนลด</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--Modal source code-->
+<div class="modal fade" id="cal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle"> Source Code</h5>
+            </div>
+            <div class="modal-body">
+                <pre id="source">
+                            <code id="code-block" class="language-html ">
+&lt;?php
+function caltotal($price, $unit){
+    $total = $price * $unit;
+    return $total;
+}
+function calpayment($total, $discount){
+    $payment = $total - $discount;
+    return $payment;
+}
+function discount($total)
+{
+    $discount = 0;
+    if ($total &gt; 20000) {
+        $discount = $total * 20 / 100;
+    } else if ($total &gt; 15000) {
+        $discount = $total * 15 / 100;
+    } else if ($total &gt; 10000) {
+        $discount = $total * 10 / 100;
+    } else if ($total &gt;= 5000) {
+        $discount = $total * 5 / 100;
+    } else {
+        $discount = 0;
+    }
+    return $discount;
+}
+
+if (isset($_POST["cal"])) {
+    $code = $_POST["code"];
+    $gname = $_POST["gname"];
+    $type = $_POST["type"];
+    $price = $_POST["price"];
+    $unit = $_POST["unit"];
+    $total = caltotal($price, $unit);
+    $discount = discount($total);
+    $payment = calpayment($total,$discount);
+}
+?&gt;
+                            </code>
+                        </pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

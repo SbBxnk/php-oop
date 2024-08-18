@@ -1,0 +1,145 @@
+<style>
+    .container-sm {
+        width: 100%;
+        max-width: 1000px;
+    }
+
+    .code-container {
+        position: relative;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+        overflow: hidden;
+        padding: 10px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .code-container pre {
+        margin: 0;
+        overflow: auto;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        z-index: 1;
+        transition: background-color 0.3s;
+    }
+
+    #source {
+        font-size: 13px;
+    }
+
+    :not(pre)>code[class*=language-],
+    pre[class*=language-] {
+        background-color: #ffffff;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container-sm py-5">
+        <h1 class="text-muted">Source Code Rectangle Area</h1>
+        <div class="code-container">
+            <div class="d-flex justify-content-between border-bottom border-2 px-2 py-1">
+                <h4 class="text-muted">Lab03_rectangle.php</h4>
+                <button id="copy-button" class="copy-btn btn btn-outline-secondary" onclick="copyCode()">คัดลอก</button>
+            </div>
+            <pre id="source">
+                <code id="code-block" class="language-html ">
+&lt;?php
+
+class Rectangle
+{
+    private $width;
+    private $hight;
+    // สี่เหลี่ยม
+
+    public function Rarea()
+    {
+        return $this-&gt;width * $this-&gt;hight;
+    }
+    public function Rlenght()
+    {
+        return ($this-&gt;width * 2) + ($this-&gt;hight * 2);
+    }
+
+    public function setwidth($pwidth)
+    {
+        $this-&gt;width = $pwidth;
+    }
+    public function sethight($phight)
+    {
+        $this-&gt;hight = $phight;
+    }
+
+
+} // end class
+$rect = new Rectangle();
+?&gt;
+&lt;div class="container py-5 text-center"&gt;
+    &lt;?php
+    $rect-&gt;setwidth(52);
+    $rect-&gt;sethight(21);
+    ?&gt;
+    &lt;h3 class="text-primary"&gt;สี่เหลี่ยมผืนผ้าที่ 1&lt;/h3&gt;
+    &lt;p&gt;ความกว้าง = 52&lt;/p&gt;
+    &lt;p&gt;ความยาว = 21&lt;/p&gt;
+    &lt;span&gt;พื้นที่ = &lt;?php echo $rect-&gt;Rarea(); ?&gt; ตารางเซนติเมตร&lt;/span&gt; &lt;br&gt;
+    &lt;span&gt;ความยาวรอบรูป = &lt;?php echo $rect-&gt;Rlenght(); ?&gt; ตารางเซนติเมตร&lt;/span&gt;
+    &lt;hr&gt;
+
+    &lt;?php
+    $rect-&gt;setwidth(20);
+    $rect-&gt;sethight(40);
+    ?&gt;
+    &lt;h3 class="text-primary"&gt;สี่เหลี่ยมผืนผ้าที่ 2&lt;/h3&gt;
+    &lt;p&gt;ความกว้าง = 20&lt;/p&gt;
+    &lt;p&gt;ความยาว = 40&lt;/p&gt;
+    &lt;span&gt;พื้นที่ = &lt;?php echo $rect-&gt;Rarea(); ?&gt; ตารางเซนติเมตร&lt;/span&gt; &lt;br&gt;
+    &lt;span&gt;ความยาวรอบรูป = &lt;?php echo $rect-&gt;Rlenght(); ?&gt; ตารางเซนติเมตร&lt;/span&gt;
+    &lt;hr&gt;
+
+    &lt;?php
+    $rect-&gt;setwidth(42);
+    $rect-&gt;sethight(13);
+    ?&gt;
+    &lt;h3 class="text-primary"&gt;สี่เหลี่ยมผืนผ้าที่ 3&lt;/h3&gt;
+    &lt;p&gt;ความกว้าง = 42&lt;/p&gt;
+    &lt;p&gt;ความยาว = 13&lt;/p&gt;
+    &lt;span&gt;พื้นที่ = &lt;?php echo $rect-&gt;Rarea(); ?&gt; ตารางเซนติเมตร&lt;/span&gt; &lt;br&gt;
+    &lt;span&gt;ความยาวรอบรูป = &lt;?php echo $rect-&gt;Rlenght(); ?&gt; ตารางเซนติเมตร&lt;/span&gt;
+    &lt;hr&gt;
+&lt;/div&gt;        
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- เพิ่ม Prism.js JavaScript -->
+    <script>
+        function copyCode() {
+            // เข้าถึง element ของโค้ด
+            const codeElement = document.getElementById('code-block');
+            // สร้าง TextArea ชั่วคราว
+            const textArea = document.createElement('textarea');
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            // เปลี่ยนข้อความของปุ่มเป็น "คัดลอกแล้ว"
+            const button = document.getElementById('copy-button');
+            button.textContent = 'คัดลอกแล้ว';
+
+            // เปลี่ยนข้อความกลับเป็น "Copy Code" หลังจาก 3 วินาที
+            setTimeout(() => {
+                button.textContent = 'คัดลอก';
+            }, 3000);
+        }
+    </script>

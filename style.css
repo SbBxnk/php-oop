@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+*{
+    font-family: 'Kanit', sans-serif;
+}
+
+:root {
+    --completed-color: #2aba1d;
+}
+/* ้html */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px; 
+    border: 2px solid transparent; 
+    background-clip: content-box;
+}
+
+
+html {
+    scrollbar-width: thin; /* ความกว้างของ scrollbar */
+    scrollbar-color:rgba(255, 255, 255, 0.0) transparent;
+}
+
+
+/* icon*/
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.completed{
+    background-color: var(--completed-color);
+}
+
+/*navbar*/
+.navbar-nav::-webkit-scrollbar {
+    width: 8px;
+}
+
+.navbar-nav::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.navbar-nav::-webkit-scrollbar-thumb {
+    border-radius: 10px; 
+    border: 2px solid transparent; 
+    background-clip: content-box;
+}
+
+
+.navbar-nav {
+    scrollbar-width: thin; 
+    scrollbar-color:rgba(255, 255, 255,0.5) transparent;
+}
+
+.navbar-nav {
+    overflow-y: auto;
+    max-height: 800px;
+}
+.dropdown-menu{
+    background-color: rgba(255, 255, 255, 0.178) !important;
+    border: solid 1px #fff;
+
+}
+.dropdown-divider{
+    border-top: solid 1px #fff !important;
+}
+.btn-check + .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.offcanvas{
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(5px);
+}
+
+
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+/*homepage*/
+.course-dis{
+    font-size: 20px;
+}
+
+.img-homepage {
+    width: 100%;
+    height: auto;
+}
+.course-dis {
+    font-size: 18px;
+}
+
+.fixed-bottom {
+    margin-top: 20px;
+}
+/* sidebar */
+
+
+/* For screens up to 550px */
+@media screen  and (max-width: 550px) {
+    .course-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .img-homepage {
+        max-width: 300px;
+    }
+    .typing {
+        font-size: 23px;
+    }
+    .course-dis {
+        font-size: 15px;
+    }
+    span.badge {
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (min-width: 551px) and (max-width: 768px) {
+    .course-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .img-homepage {
+        max-width: 300px; /* Adjust as needed */
+    }
+    .typing {
+        font-size: 35px;
+    }
+    .course-dis {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+    .course-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h1 {
+        font-size: 20px; 
+    }
+    .img-homepage {
+        max-width: 350px;
+    }
+    .typing {
+        font-size: 35px;
+    }
+    .course-dis {
+        font-size: 16px;
+    }
+    .fixed-bottom {
+        margin-top: 20px;
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .img-homepage {
+        max-width: 100%;
+    }
+    .typing {
+        font-size: 40px;
+    }
+    .course-dis {
+        font-size: 18px;
+    }
+}

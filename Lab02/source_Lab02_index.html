@@ -1,0 +1,205 @@
+<style>
+    .container-sm {
+        width: 100%;
+        max-width: 1000px;
+    }
+
+    .code-container {
+        position: relative;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+        overflow: hidden;
+        padding: 10px;
+        margin: 20px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .code-container pre {
+        margin: 0;
+        overflow: auto;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        z-index: 1;
+        transition: background-color 0.3s;
+    }
+
+    #source {
+        font-size: 13px;
+    }
+
+    :not(pre)>code[class*=language-],
+    pre[class*=language-] {
+        background-color: #ffffff;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container-sm py-5">
+        <h1 class="text-muted">Source Code index Lab02</h1>
+        <div class="code-container">
+            <div class="d-flex justify-content-between border-bottom border-2 px-2 py-1">
+                <h4 class="text-muted">index.html</h4>
+                <button id="copy-button" class="copy-btn btn btn-outline-secondary" onclick="copyCode()">คัดลอก</button>
+            </div>
+            <pre id="source">
+                <code id="code-block" class="language-html ">
+&lt;style&gt;
+    .form {
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+        /* border: solid 2px; */
+    }
+
+    .container-sm {
+        max-width: 400px;
+    }
+
+    input,
+    select {
+        margin-top: 5px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .modal-body {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+&lt;/style&gt;
+&lt;div class="container-fluid py-5"&gt;
+    &lt;div class="container-sm card rounded-3 shadow-sm"&gt;
+        &lt;h2 class="fw-bold text-center mt-3"&gt;เครื่องคิดเลข&lt;/h2&gt;
+        &lt;div class="d-flex justify-content-center align-items-center input-group"&gt;
+            &lt;form class="form" action="./Lab02/Lab02_post.php" method="post"&gt;
+                &lt;label class="pt-2" for="a"&gt;Number A&lt;/label&gt;
+                &lt;input type="number" class="form-control" name="a" placeholder="กรุณากรอก Number A" required&gt;
+                &lt;label class="pt-2" for="op"&gt;Operator&lt;/label&gt;
+                &lt;select name="op" class="form-select" required&gt;
+                    &lt;option value="+"&gt;+&nbsp;&nbsp;&nbsp;(บวก)&lt;/option&gt;
+                    &lt;option value="-"&gt;-&nbsp;&nbsp;&nbsp;(ลบ)&lt;/option&gt;
+                    &lt;option value="*"&gt;*&nbsp;&nbsp;&nbsp;(คูณ)&lt;/option&gt;
+                    &lt;option value="/"&gt;/&nbsp;&nbsp;&nbsp;(หาร)&lt;/option&gt;
+                    &lt;option value="%"&gt;÷&nbsp;&nbsp;&nbsp;(หารเอาเศษ)&lt;/option&gt;
+                    &lt;option value="^"&gt;X&sup2;&nbsp;(ยกกำลัง)&lt;/option&gt;
+                    &lt;option value="\\"&gt;\\&nbsp;&nbsp;(หารเอาจำนวนต็ม)&lt;/option&gt;
+                &lt;/select&gt;
+
+                &lt;label class="pt-2" for="b"&gt;Number B&lt;/label&gt;
+                &lt;input type="number" class="form-control" name="b" placeholder="กรุณากรอก Number B" required&gt;
+                &lt;div class="button d-flex"&gt;
+                    &lt;button type="button" class="col-5 btn btn-outline-danger" data-toggle="modal"
+                        data-target="#cal1"&gt;code&lt;/button&gt;
+                    &lt;button type="submit" name="cal" class="col-6 btn btn-success"&gt;คำนวณ&lt;/button&gt;
+                &lt;/div&gt;
+
+            &lt;/form&gt;
+        &lt;/div&gt;
+        &lt;!--Modal source code--&gt;
+        &lt;div class="modal fade bd-example-modal-lg" id="cal1" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true"&gt;
+            &lt;div class="modal-dialog modal-lg"&gt;
+                &lt;div class="modal-content"&gt;
+                    &lt;div class="modal-header"&gt;
+                        &lt;h5 class="modal-title" id="exampleModalCenterTitle"&gt; Source Code&lt;/h5&gt;
+                    &lt;/div&gt;
+                    &lt;div class="modal-body"&gt;
+                        &lt;pre&gt;
+            &lt;?php
+                function calnum($a, $op, $b)
+                {
+                    $c = 0;
+                    if ($op == "+")
+                        $c = $a + $b;
+                    elseif ($op == "-")
+                        $c = $a - $b;
+                    elseif ($op == "*")
+                        $c = $a * $b;
+                    elseif ($op == "/")
+                        $c = $a / $b;
+                    elseif ($op == "%")
+                        $c = $a % $b;
+                    elseif ($op == "^")
+                        $c = pow($a, $b);
+                    elseif ($op = "\\")
+                        $c = intdiv($a, $b);
+                    return $c;
+                }
+        
+                //การทำงาน
+                if (isset($_POST['cal'])) {
+                    $a = $_POST['a'];
+                    $op = $_POST['op']; 
+                    $b = $_POST['b'];
+        
+                    echo "$a $op $b = ". calnum($a,$op,$b);
+                }
+            ?&gt;
+        &lt;/pre&gt;
+                    &lt;/div&gt;
+                    &lt;div class="modal-footer"&gt;
+                        &lt;button type="button" class="btn btn-danger" data-dismiss="modal"&gt;Close&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
+            </pre>
+        </div>
+    </div>
+    <!-- เพิ่ม Prism.js JavaScript -->
+    <script>
+        function copyCode() {
+            // เข้าถึง element ของโค้ด
+            const codeElement = document.getElementById('code-block');
+            // สร้าง TextArea ชั่วคราว
+            const textArea = document.createElement('textarea');
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            // เปลี่ยนข้อความของปุ่มเป็น "คัดลอกแล้ว"
+            const button = document.getElementById('copy-button');
+            button.textContent = 'คัดลอกแล้ว';
+
+            // เปลี่ยนข้อความกลับเป็น "Copy Code" หลังจาก 3 วินาที
+            setTimeout(() => {
+                button.textContent = 'คัดลอก';
+            }, 3000);
+        }
+    </script>

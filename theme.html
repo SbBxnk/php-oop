@@ -1,0 +1,41 @@
+<!--Toggle Switch Theme-->
+<li class="nav-item">
+    <a href="#" class="navbar border-0 py-0 shadow-none">
+        <input type="checkbox" class="btn-check" id="darkModeSwitch" autocomplete="off">
+        <label class="btn btn-secondary d-flex justify-content-center align-items-center" for="darkModeSwitch">
+            <span class="material-symbols-outlined" id="darkModeIcon">wb_sunny</span>
+        </label>
+    </a>
+</li>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const htmlElement = document.documentElement;
+        const switchElement = document.getElementById('darkModeSwitch');
+        const iconElement = document.getElementById('darkModeIcon');
+
+        // Set the default theme to light if no setting is found in local storage
+        const currentTheme = localStorage.getItem('bsTheme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', currentTheme);
+        switchElement.checked = currentTheme === 'dark';
+        if (currentTheme === 'dark') {
+            iconElement.textContent = 'dark_mode';
+        } else {
+            iconElement.textContent = 'wb_sunny';
+        }
+
+        switchElement.addEventListener('change', function () {
+            if (this.checked) {
+                htmlElement.setAttribute('data-bs-theme', 'dark');
+                localStorage.setItem('bsTheme', 'dark');
+                iconElement.textContent = 'dark_mode';
+            } else {
+                htmlElement.setAttribute('data-bs-theme', 'light');
+                localStorage.setItem('bsTheme', 'light');
+                iconElement.textContent = 'wb_sunny';
+            }
+        });
+    });
+
+
+</script>
