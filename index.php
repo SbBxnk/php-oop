@@ -24,7 +24,7 @@
 
 <body>
     <!-- ส่วน navbar -->
-    <?php require_once ("navbar.html") ?>
+    <?php require_once("navbar.html") ?>
     <!-- ส่วนเนื้อหา Content-->
     <div class="container">
         <?php
@@ -32,144 +32,163 @@
             switch ($_GET['p']) {
                 // Home page
                 case "home":
-                    include ("homepage.html");
+                    include("homepage.html");
                     break;
                 case "contact":
-                    include ("contact.html");
+                    include("contact.html");
                     break;
 
                 /*Lab01*/
                 case "Lab01":
-                    include ("./Lab01/index.html");
+                    include("./Lab01/index.html");
                     break;
                 case "Lab01_post1": //action
-                    include ("./Lab01/Lab01_post01.php");
+                    include("./Lab01/Lab01_post01.php");
                     break;
                 case "Lab01_post2": //action
-                    include ("./Lab01/Lab01_post02.php");
+                    include("./Lab01/Lab01_post02.php");
                     break;
                 case "Lab01_post3": //action
-                    include ("./Lab01/Lab01_post03.php");
+                    include("./Lab01/Lab01_post03.php");
                     break;
                 case "Lab1111":
-                    include ("1111.html");
+                    include("1111.html");
                     break;
                 case "source_Lab01_index":
-                    include ("./Lab01/source_Lab01_index.html");
+                    include("./Lab01/source_Lab01_index.html");
                     break;
                 case "Lab01_calnum":
-                    include ("./Lab01/Lab01_calnum.php");
+                    include("./Lab01/Lab01_calnum.php");
                     break;
                 case "source_Lab01_post01":
-                    include ("./Lab01/source_Lab01_post01.html");
+                    include("./Lab01/source_Lab01_post01.html");
                     break;
                 case "source_Lab01_post02":
-                    include ("./Lab01/source_Lab01_post02.html");
+                    include("./Lab01/source_Lab01_post02.html");
                     break;
                 case "source_Lab01_post03":
-                    include ("./Lab01/source_Lab01_post03.html");
+                    include("./Lab01/source_Lab01_post03.html");
                     break;
                 /*Lab02*/
                 case "Lab02":
-                    include ("./Lab02/index.html");
+                    include("./Lab02/index.html");
                     break;
                 case "Lab02_post": //action
-                    include ("./Lab02/Lab02_post.php");
+                    include("./Lab02/Lab02_post.php");
                     break;
                 case "Lab02_1function":
-                    include ("./Lab02/Lab02_1function.php");
+                    include("./Lab02/Lab02_1function.php");
                     break;
                 case "source_Lab02_index":
-                    include ("./Lab02/source_Lab02_index.html");
+                    include("./Lab02/source_Lab02_index.html");
                     break;
                 case "source_Lab02_post":
-                    include ("./Lab02/source_Lab02_post.html");
+                    include("./Lab02/source_Lab02_post.html");
                     break;
 
                 /*Lab03*/
                 case "Lab03":
-                    include ("./Lab03/index.html");
+                    include("./Lab03/index.html");
                     break;
                 case "Lab03_circle":
-                    include ("./Lab03/Lab03_circle.php");
+                    include("./Lab03/Lab03_circle.php");
                     break;
                 case "Lab03_rectangle":
-                    include ("./Lab03/Lab03_rectangle.php");
+                    include("./Lab03/Lab03_rectangle.php");
                     break;
                 case "source_Lab03_circle":
-                    include ("./Lab03/source_Lab03_circle.html");
+                    include("./Lab03/source_Lab03_circle.html");
                     break;
                 case "source_Lab03_rectangle":
-                    include ("./Lab03/source_Lab03_rectangle.html");
+                    include("./Lab03/source_Lab03_rectangle.html");
                     break;
                 /*Lab04*/
                 case "Lab04":
-                    include ("./Lab04/index.html");
+                    include("./Lab04/index.html");
                     break;
                 case "Lab04_circle":
-                    include ("./Lab04/Lab04_circle.php");
+                    include("./Lab04/Lab04_circle.php");
                     break;
                 case "Lab04_circle_OOP": //action
-                    include ("./Lab04/Lab04_circle_OOP.php");
+                    include("./Lab04/Lab04_circle_OOP.php");
                     break;
 
 
                 /*Lab05*/
                 case "Lab05":
-                    include ("./Lab05/index.html");
+                    include("./Lab05/index.html");
                     break;
                 case "Lab05_normal": //action
-                    include ("./Lab05/Lab05_normal.php");
+                    include("./Lab05/Lab05_normal.php");
                     break;
                 case "Lab05_home_work":
-                    include ("./Lab05/Lab05_home_work.html");
+                    include("./Lab05/Lab05_home_work.html");
                     break;
                 case "Lab05_fucntion": //action Home work
-                    include ("./Lab05/Lab05_fucntion.php");
+                    include("./Lab05/Lab05_fucntion.php");
                     break;
 
                 /*Lab06*/
                 case "Lab06":
-                    include ("./Lab06/Lab06_tax.html");
+                    include("./Lab06/Lab06_tax.html");
                     break;
                 case "Lab06_cal_tax":
-                    include ("./Lab06/Lab06_tax.php");
+                    include("./Lab06/Lab06_tax.php");
                     break;
                 case "Lab06_tax_oop":
-                    include ("./Lab06/Lab06_oop.php");
+                    include("./Lab06/Lab06_oop.php");
                     break;
                 /*Lab07 */
                 case "Lab07_normal":
-                    include ("./Lab07/Lab07_normal.html");
+                    include("./Lab07/Lab07_normal.html");
                     break;
                 case "sales_normal":
-                    include ("./Lab07/sales_normal.php");
+                    include("./Lab07/sales_normal.php");
                     break;
                 case "Lab07_func":
-                    include ("./Lab07/Lab07_func.html");
+                    include("./Lab07/Lab07_func.html");
                     break;
                 case "sales_func":
-                    include ("./Lab07/sales_func.php");
+                    include("./Lab07/sales_func.php");
                     break;
                 case "Lab07_oop":
-                    include ("./Lab07/Lab07_oop.html");
+                    include("./Lab07/Lab07_oop.html");
                     break;
                 case "sales_oop":
-                    include ("./Lab07/sales_oop.php");
+                    include("./Lab07/sales_oop.php");
+                    break;
+                    
+                /*Lab08 */
+                case "Lab08":
+                    include("./Lab08/index.php");
+                    break;
+
+                // Lab_shape
+                case "shape":
+                    include("./Lab_shape/index.php");
+                    break;
+                case "shape_class":
+                    include("./Lab_shape/shape_class.php");
+                    break;
+                case "index_grade":
+                    include("./Lab_shape/index_grade.php");
+                    break;
+                case "grade":
+                    include("./Lab_shape/PercentageGrade.php");
                     break;
 
 
                 default:
-                    include ("homepage.html");
+                    include("homepage.html");
                     break;
             }// end switch
         } else {
-            include ("homepage.html"); // คำอธิบายรายวิชา
+            include("homepage.html"); // คำอธิบายรายวิชา
         }
         ?>
     </div>
     <!-- ส่วนเครดิต footer -->
-    <?php require_once ("footer.html") ?>
+    <?php require_once("footer.html") ?>
     <!-- Script bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

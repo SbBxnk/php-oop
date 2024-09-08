@@ -1,0 +1,1 @@
+<h1 style="width:100%;height:500px;" class="text-danger d-flex justify-content-center align-items-center">คำนวณเกรด</h1>

@@ -19,3 +19,14 @@ class Shape
     }
 }
 ?>
+
+<?php
+$rectangle = new Shape("Rectangle");
+echo $rectangle->getName();
+echo "<br>";
+$rectangle = new Shape("Trainagle");
+echo $rectangle->getName();
+echo "<br>";
+$rectangle->setName("Circle");
+echo $rectangle->getName();
+?>
