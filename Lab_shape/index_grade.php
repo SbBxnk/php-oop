@@ -81,11 +81,9 @@ class Grade{
     public function __construct($studentName){
         $this-&gt;studentName = $studentName;
     }
-
     public function getName(){
         return $this-&gt;studentName;
     }
-    
     public function Grade($score){
         if ($score &gt;= 90){
             $this-&gt;grade = "A";
@@ -98,9 +96,7 @@ class Grade{
         }else{
             $this-&gt;grade = "F";
         }
-        
     }
-    
     public function getGrade(){
         return $this-&gt;grade;
     }

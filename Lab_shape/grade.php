@@ -1,6 +1,7 @@
 <?php 
 class Grade{
     protected $studentName;
+    
     private $grade;
     
     public function __construct($studentName){
