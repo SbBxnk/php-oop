@@ -12,7 +12,7 @@ class Grade{
         return $this->studentName;
     }
     
-    public function Grade($score){
+    public function getGrade($score){
         if ($score >= 90){
             $this->grade = "A";
         } elseif ($score >= 80 ){
@@ -24,10 +24,6 @@ class Grade{
         }else{
             $this->grade = "F";
         }
-        
-    }
-    
-    public function getGrade(){
         return $this->grade;
     }
 }

@@ -7,7 +7,6 @@ class PercentageGrade extends Grade
     public function __construct($studentName, $score)
     {
         parent::__construct($studentName);
-        $this->Grade($score);
         $this->score = $score;
     }
     public function getScore()
@@ -16,13 +15,10 @@ class PercentageGrade extends Grade
     }
 }
 
-
-
-
 $studentName = 'Mr.Chayakorn';
 $score = 85;
 $PercentageGrade = new PercentageGrade($studentName, $score);
-$grade = $PercentageGrade->getGrade();
+$grade = $PercentageGrade->getGrade($score);
 ?>
 
 <p class="my-0">The student's <span class="text-danger fw-bold"><?php echo $PercentageGrade->getName() ?></span></p>

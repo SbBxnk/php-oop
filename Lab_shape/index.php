@@ -92,7 +92,7 @@
                         <?php require_once('rectangle.php') ?>
                     </div>
                     <div class="d-flex align-items-center justify-content-end">
-                        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#rectangle">source code</button>
+                        <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#rectangle">source code</button>
                     </div>
                 </div>
                 <hr>
@@ -101,7 +101,7 @@
                         <?php require_once('triangle.php') ?>
                     </div>
                     <div class="d-flex align-items-center justify-content-end">
-                        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#triangle">source code</button>
+                        <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#triangle">source code</button>
                     </div>
                 </div>
                 <hr>
@@ -110,7 +110,7 @@
                         <?php require_once('circle.php') ?>
                     </div>
                     <div class="d-flex align-items-center justify-content-end">
-                        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#circle">source code</button>
+                        <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#circle">source code</button>
                     </div>
                 </div>
                 <hr>

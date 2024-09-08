@@ -76,6 +76,7 @@
 &lt;?php 
 class Grade{
     protected $studentName;
+    
     private $grade;
     
     public function __construct($studentName){
@@ -84,7 +85,7 @@ class Grade{
     public function getName(){
         return $this-&gt;studentName;
     }
-    public function Grade($score){
+    public function getGrade($score){
         if ($score &gt;= 90){
             $this-&gt;grade = "A";
         } elseif ($score &gt;= 80 ){
@@ -96,8 +97,6 @@ class Grade{
         }else{
             $this-&gt;grade = "F";
         }
-    }
-    public function getGrade(){
         return $this-&gt;grade;
     }
 }
@@ -121,32 +120,32 @@ class Grade{
                     </div>
                     <pre id="source">
                         <code id="PercentageGrade" class="language-html">
-&lt;?php 
+&lt;?php
 require_once("grade.php");
-class PercentageGrade extends Grade {
 
+class PercentageGrade extends Grade
+{
     private $score;
-    public function __construct($studentName, $score) {
+    public function __construct($studentName, $score)
+    {
         parent::__construct($studentName);
-        $this-&gt;score = $score;  
-        $this-&gt;Grade($score);
+        $this-&gt;score = $score;
     }
-
-    public function getScore() {
+    public function getScore()
+    {
         return $this-&gt;score;
     }
-
 }
 
 $studentName = 'Mr.Chayakorn';
 $score = 85;
 $PercentageGrade = new PercentageGrade($studentName, $score);
-$grade = $PercentageGrade-&gt;getGrade();
+$grade = $PercentageGrade-&gt;getGrade($score);
 ?&gt;
 
 &lt;p class="my-0"&gt;The student's &lt;span class="text-danger fw-bold"&gt;&lt;?php echo $PercentageGrade-&gt;getName() ?&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p class="my-0"&gt;Test score is &lt;?php echo $PercentageGrade-&gt;getScore()?&gt;&lt;/p&gt;
-&lt;p class="my-0"&gt;Grade is &lt;?php echo $grade?&gt;.&lt;/p&gt;
+&lt;p class="my-0"&gt;Test score is &lt;?php echo $PercentageGrade-&gt;getScore() ?&gt;&lt;/p&gt;
+&lt;p class="my-0"&gt;Grade is &lt;?php echo $grade ?&gt;.&lt;/p&gt;
                         </code>
                     </pre>
                 </div>

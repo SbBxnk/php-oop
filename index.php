@@ -162,6 +162,9 @@
                 case "Lab08":
                     include("./Lab08/index.php");
                     break;
+                case "cal_grade":
+                    include("./Lab08/cal_gade.php");
+                    break;
 
                 // Lab_shape
                 case "shape":
@@ -192,7 +195,8 @@
     <!-- Script bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- code Prism.Js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
 </body>
