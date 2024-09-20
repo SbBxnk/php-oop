@@ -85,7 +85,7 @@ if (isset($_POST['cal'])) {
     $income = $_POST['income'];
 
     $calvat = new Vat($income);
-    $vat = $calvat->calculateVat();  
+    $vat = $calvat->calculateTax();  
     
     $calsalary = new CalIncome();
     $salary = $income *  12;  

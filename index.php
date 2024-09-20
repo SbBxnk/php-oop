@@ -184,9 +184,14 @@
                 case "Lab_vat":
                     include("./Lab_vat/index.php");
                     break;
-                // case "cal_grade":
-                //     include("./Lab08/cal_gade.php");
-                //     break;
+                    /*Lab_Factorial */
+                case "Lab_fac":
+                    include("./Lab_Factorial/labFactorial.php");
+                    break;
+                case "Lab_fac1":
+                    include("./Lab_Factorial/lab_oop_factorial.php");
+                    break;
+
 
                 default:
                     include("homepage.html");
