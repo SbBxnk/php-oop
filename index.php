@@ -30,7 +30,7 @@
         <?php
         if (isset($_GET['p'])) { // 1 : ture
             switch ($_GET['p']) {
-                // Home page
+                    // Home page
                 case "home":
                     include("homepage.html");
                     break;
@@ -38,7 +38,7 @@
                     include("contact.html");
                     break;
 
-                /*Lab01*/
+                    /*Lab01*/
                 case "Lab01":
                     include("./Lab01/index.html");
                     break;
@@ -69,7 +69,7 @@
                 case "source_Lab01_post03":
                     include("./Lab01/source_Lab01_post03.html");
                     break;
-                /*Lab02*/
+                    /*Lab02*/
                 case "Lab02":
                     include("./Lab02/index.html");
                     break;
@@ -86,7 +86,7 @@
                     include("./Lab02/source_Lab02_post.html");
                     break;
 
-                /*Lab03*/
+                    /*Lab03*/
                 case "Lab03":
                     include("./Lab03/index.html");
                     break;
@@ -102,7 +102,7 @@
                 case "source_Lab03_rectangle":
                     include("./Lab03/source_Lab03_rectangle.html");
                     break;
-                /*Lab04*/
+                    /*Lab04*/
                 case "Lab04":
                     include("./Lab04/index.html");
                     break;
@@ -114,7 +114,7 @@
                     break;
 
 
-                /*Lab05*/
+                    /*Lab05*/
                 case "Lab05":
                     include("./Lab05/index.html");
                     break;
@@ -128,7 +128,7 @@
                     include("./Lab05/Lab05_fucntion.php");
                     break;
 
-                /*Lab06*/
+                    /*Lab06*/
                 case "Lab06":
                     include("./Lab06/Lab06_tax.html");
                     break;
@@ -138,7 +138,7 @@
                 case "Lab06_tax_oop":
                     include("./Lab06/Lab06_oop.php");
                     break;
-                /*Lab07 */
+                    /*Lab07 */
                 case "Lab07_normal":
                     include("./Lab07/Lab07_normal.html");
                     break;
@@ -157,8 +157,8 @@
                 case "sales_oop":
                     include("./Lab07/sales_oop.php");
                     break;
-                    
-                /*Lab08 */
+
+                    /*Lab08 */
                 case "Lab08":
                     include("./Lab08/index.php");
                     break;
@@ -166,7 +166,7 @@
                     include("./Lab08/cal_gade.php");
                     break;
 
-                // Lab_shape
+                    // Lab_shape
                 case "shape":
                     include("./Lab_shape/index.php");
                     break;
@@ -180,11 +180,18 @@
                     include("./Lab_shape/PercentageGrade.php");
                     break;
 
+                    /*Lab_vat */
+                case "Lab_vat":
+                    include("./Lab_vat/index.php");
+                    break;
+                // case "cal_grade":
+                //     include("./Lab08/cal_gade.php");
+                //     break;
 
                 default:
                     include("homepage.html");
                     break;
-            }// end switch
+            } // end switch
         } else {
             include("homepage.html"); // คำอธิบายรายวิชา
         }

@@ -62,7 +62,7 @@
                 <div class="code-container">
                     <div class="d-flex justify-content-between border-bottom border-2 px-2 py-1">
                         <h4 class="fw-bold text-danger">Parent class file : <span
-                                class="text-secondary">shape_class.php</span></h4>
+                                class="text-secondary">Grade.php</span></h4>
                         <button id="copy-button" class="copy-btn border-0 bg-transparent text-body-tertiary"
                             style="transition: transform 0.2s; --bs-icon-link-transform: translate3d(0, 0, 0);"
                             onmouseover="this.style.transform='translate3d(0, -0.125rem, 0)'"
@@ -85,7 +85,7 @@ class Grade{
     public function getName(){
         return $this-&gt;studentName;
     }
-    public function getGrade($score){
+    public function Grade($score){
         if ($score &gt;= 90){
             $this-&gt;grade = "A";
         } elseif ($score &gt;= 80 ){
@@ -140,7 +140,7 @@ class PercentageGrade extends Grade
 $studentName = 'Mr.Chayakorn';
 $score = 85;
 $PercentageGrade = new PercentageGrade($studentName, $score);
-$grade = $PercentageGrade-&gt;getGrade($score);
+$grade = $PercentageGrade-&gt;Grade($score);
 ?&gt;
 
 &lt;p class="my-0"&gt;The student's &lt;span class="text-danger fw-bold"&gt;&lt;?php echo $PercentageGrade-&gt;getName() ?&gt;&lt;/span&gt;&lt;/p&gt;
