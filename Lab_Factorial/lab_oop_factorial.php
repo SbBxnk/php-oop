@@ -1,4 +1,4 @@
-<?php 
+<?php
 class MathOperation
 {
     protected $number;
@@ -31,66 +31,56 @@ class factorial extends MathOperation
 
 class Rec_factorial extends MathOperation
 {
-    public function calculate(){
+    public function calculate()
+    {
         return $this->cal_factorial($this->number);
     }
-    private function cal_factorial($N){
+    private function cal_factorial($N)
+    {
         if ($N == 0 || $N == 1)
             return 1;
         else
             return $N * $this->cal_factorial($N - 1);
     }
 }
-class Square extends MathOperation{
-    public function calculate(){
+class Square extends MathOperation
+{
+    public function calculate()
+    {
         return $this->number * $this->number;
     }
 }
-class Circle extends MathOperation{
-    public function calculate(){
+class Circle extends MathOperation
+{
+    public function calculate()
+    {
         // return pi() *  pow($this->number,2);
-        return pi() *  $this->number **2;
+        return pi() *  $this->number ** 2;
     }
 }
 
 ?>
 
-<h4>เรียกใช้ class</h4>
+
+
 <?php
-$N = 5;
-$fac = new MathOperation($N);
-$fac_result = $fac->calculate();
+if (isset($_POST['submit'])) {
+    // $N = 5;
+    $N = $_POST['N'];
+    $fac = new MathOperation($N);
+    $fac_result = $fac->calculate();
 
-$fac = new factorial($N);
-$fac1 = $fac->calculate();
+    $fac = new factorial($N);
+    $fac1 = $fac->calculate();
 
-$fac = new Rec_factorial($N);
-$fac2 = $fac->calculate();
+    $fac = new Rec_factorial($N);
+    $fac2 = $fac->calculate();
 
-$sqaure = new Square($N);
-$sqaure1 = $sqaure->calculate();
+    $sqaure = new Square($N);
+    $sqaure1 = $sqaure->calculate();
 
-$circle = new Circle($N,null);
-$circle1 = $circle->calculate();
+    $circle = new Circle($N, null);
+    $circle1 = $circle->calculate();
+} 
 ?>
 
-<p><?php echo $fac_result ?></p>
-<hr>
-<p><?php echo "$N! =" . $fac1 ?></p>
-<h4>Recursive Function</h4>
-<p><?php echo "$N! =" . $fac2 ?></p>
-<h4>หาพื้นที่สี่เหลี่ยมจตุรัส</h4>
-<p><?php echo "$N x $N =" . $sqaure1 ?> ตร.หน่วย</p>
-<h4>หาพื้นที่วงกลม</h4>
-<p><?php echo "3.14 x $N<sup>2</sup> =" . number_format($circle1,2) ?> ตร.หน่วย</p>
-
-
-<h2 class="text-danger fw-bold ">Home workdadadadada</h2>
-
-<pre>
-select 
-    - Fac OOP
-    - Recursive
-    - sqaure
-    - Circle
-</pre>

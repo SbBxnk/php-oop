@@ -26,7 +26,7 @@
     <!-- ส่วน navbar -->
     <?php require_once("navbar.html") ?>
     <!-- ส่วนเนื้อหา Content-->
-    <div class="container">
+    <div class="container my-5">
         <?php
         if (isset($_GET['p'])) { // 1 : ture
             switch ($_GET['p']) {
@@ -184,7 +184,11 @@
                 case "Lab_vat":
                     include("./Lab_vat/index.php");
                     break;
+
                     /*Lab_Factorial */
+                case "Lab_formfac":
+                    include("./Lab_Factorial/index.php");
+                    break;
                 case "Lab_fac":
                     include("./Lab_Factorial/labFactorial.php");
                     break;
