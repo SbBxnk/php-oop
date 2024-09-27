@@ -99,18 +99,23 @@ if (isset($_POST['submit'])) {
         <div class="col-12 col-md-3 card rounded-3 shadow-sm">
             <form class="form" action="" method="post">
                 <label class="pt-2" for="a">Enter Number</label>
-                <input type="number" class="form-control" name="N" placeholder="กรุณากรอก Number" value="" required>
-                <label class="pt-2" for="list">Operator</label>
+                <input type="number" class="form-control" name="N" placeholder="กรุณากรอก Number"
+                    value="<?php echo isset($N) ? $N : ''; ?>" required>
+                <label class="pt-2" for="list">Select</label>
                 <select name="list" class="form-select" required>
-                    <option value="oop">Factorial OOP</option>
-                    <option value="recursive">Factorial Recursive</option>
-                    <option value="square">Find the area of ​​a square</option>
-                    <option value="circle">Find the area of ​​a circle</option>
+                    <option value="oop" <?php echo (isset($list) && $list == 'oop') ? 'selected' : ''; ?>>Factorial OOP
+                    </option>
+                    <option value="recursive" <?php echo (isset($list) && $list == 'recursive') ? 'selected' : ''; ?>>
+                        Factorial Recursive</option>
+                    <option value="square" <?php echo (isset($list) && $list == 'square') ? 'selected' : ''; ?>>Find the
+                        area of ​​a square</option>
+                    <option value="circle" <?php echo (isset($list) && $list == 'circle') ? 'selected' : ''; ?>>Find the
+                        area of ​​a circle</option>
                 </select>
                 <div class="button d-flex justify-content-between">
-                <button type="button" class="col-5 btn-sm btn btn-outline-danger" data-bs-toggle="modal"
-                            data-bs-target="#prarent">Source Code</button>
-                        <button type="submit" name="submit" class="col-6 btn-sm btn btn-success">คำนวณ</button>
+                    <button type="button" class="col-5 btn-sm btn btn-outline-danger" data-bs-toggle="modal"
+                        data-bs-target="#prarent">Source Code</button>
+                    <button type="submit" name="submit" class="col-6 btn-sm btn btn-success">คำนวณ</button>
                 </div>
             </form>
         </div>

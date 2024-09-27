@@ -28,7 +28,7 @@
     <!-- ส่วนเนื้อหา Content-->
     <div class="container my-5">
         <?php
-        if (isset($_GET['p'])) { // 1 : ture
+        if (isset($_GET['p'])) { // 1 : true
             switch ($_GET['p']) {
                     // Home page
                 case "home":
@@ -161,9 +161,6 @@
                     /*Lab08 */
                 case "Lab08":
                     include("./Lab08/index.php");
-                    break;
-                case "cal_grade":
-                    include("./Lab08/cal_gade.php");
                     break;
 
                     // Lab_shape
